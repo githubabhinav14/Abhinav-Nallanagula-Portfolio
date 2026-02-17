@@ -9,6 +9,8 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ClientsSection } from "@/components/clients-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { EducationSection } from "@/components/education-section";
+import { CertificationsSection } from "@/components/certifications-section";
+import { CertificateMarquee } from "@/components/certificate-marquee";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 
@@ -28,6 +30,8 @@ export default function Home() {
         <ClientsSection />
         <ExperienceSection />
         <EducationSection />
+        <CertificationsSection />
+        <CertificateMarquee />
         <ContactSection />
       </main>
 

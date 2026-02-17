@@ -1,16 +1,7 @@
 "use client";
 
-import { GraduationCap, Award, School } from "lucide-react";
+import { GraduationCap, School } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
-
-const certifications = [
-  "GenAI Solution Challenge - Google Developer Groups (GDG)",
-  "AI & ML Workshop - Skilligence EdTech & IIT Hyderabad",
-  "Machine Learning Training - Intel Unnati Lab & MRCET",
-  "Cisco CCNA Certification Workshop - Edgate & MRCET",
-  "Best Designer Award - University Tech Fest",
-  "C Programming - Infologic Software Training & Development",
-];
 
 const coursework = [
   "Cloud Computing",
@@ -26,21 +17,18 @@ const educationTimeline = [
     institution: "Malla Reddy College of Engineering & Technology",
     degree: "B.Tech in Computer Science Engineering",
     period: "2022 - Present",
-    score: "CGPA: 7.79/10",
     icon: GraduationCap,
   },
   {
     institution: "Sri Gayatri Junior College",
     degree: "MPC (Intermediate)",
     period: "March 2022",
-    score: "Score: 77.1%",
     icon: School,
   },
   {
     institution: "Ravindra Bharathi School",
     degree: "SSC (10th Standard)",
     period: "March 2020",
-    score: "Score: 98%",
     icon: School,
   },
 ];
@@ -85,9 +73,6 @@ export function EducationSection() {
                           <span className="text-xs font-mono text-muted-foreground bg-secondary/60 px-2.5 py-0.5 rounded-full">
                             {edu.period}
                           </span>
-                          <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
-                            {edu.score}
-                          </span>
                         </div>
                       </div>
                     </div>
@@ -95,59 +80,34 @@ export function EducationSection() {
                 </SectionReveal>
               );
             })}
-
-            {/* Relevant Coursework */}
-            <SectionReveal delay={400} variant="fade-left">
-              <div className="glass-card rounded-xl p-5">
-                <h4 className="text-sm font-semibold text-foreground mb-3">
-                  Relevant Coursework
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {coursework.map((course) => (
-                    <span
-                      key={course}
-                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-secondary/60 text-muted-foreground border border-border/60"
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </SectionReveal>
           </div>
 
-          {/* Certifications card */}
-          <SectionReveal delay={200} variant="fade-right">
+          {/* Relevant Coursework */}
+          <SectionReveal delay={300} variant="fade-right">
             <div className="glass-card rounded-xl p-6 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Award className="w-6 h-6 text-primary" />
+                  <GraduationCap className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">
-                    Certifications & Achievements
+                    Relevant Coursework
                   </h3>
                   <p className="text-xs text-muted-foreground">
-                    Professional development and recognition
+                    Key subjects and areas of study
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                {certifications.map((cert, i) => (
-                  <div
-                    key={cert}
-                    className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30 border border-border/40 hover:border-primary/20 transition-colors"
+              <div className="flex flex-wrap gap-2">
+                {coursework.map((course, i) => (
+                  <span
+                    key={course}
+                    className="text-sm font-mono px-3 py-1.5 rounded-lg bg-secondary/60 text-muted-foreground border border-border/60 hover:border-primary/30 hover:text-primary transition-colors"
+                    style={{ animationDelay: `${i * 80}ms` }}
                   >
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                      <span className="text-[10px] font-mono text-primary font-bold">
-                        {(i + 1).toString().padStart(2, "0")}
-                      </span>
-                    </span>
-                    <span className="text-sm text-muted-foreground leading-relaxed">
-                      {cert}
-                    </span>
-                  </div>
+                    {course}
+                  </span>
                 ))}
               </div>
             </div>
