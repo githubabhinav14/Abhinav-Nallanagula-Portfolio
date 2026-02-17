@@ -6,24 +6,29 @@ import { useEffect, useRef, useState } from "react";
 
 const skillCategories = [
   {
-    title: "Frontend",
-    icon: "layout",
-    skills: ["React.js", "Next.js", "HTML5", "CSS3", "JavaScript", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    title: "Backend",
-    icon: "server",
-    skills: ["Node.js", "Express.js", "Spring Boot", "REST APIs", "Socket.IO", "GraphQL"],
-  },
-  {
-    title: "Database & Cloud",
-    icon: "database",
-    skills: ["MongoDB", "MySQL", "AWS", "Firebase", "Redis", "Docker"],
-  },
-  {
-    title: "Languages & Tools",
+    title: "Languages",
     icon: "wrench",
-    skills: ["JavaScript", "Python", "Java", "C", "Git & GitHub", "VS Code", "Postman", "Linux"],
+    skills: ["Python", "Java", "C", "JavaScript"],
+  },
+  {
+    title: "Frameworks",
+    icon: "layout",
+    skills: ["React.js", "Next.js", "Node.js", "Express.js", "Tailwind CSS"],
+  },
+  {
+    title: "Core Concepts",
+    icon: "server",
+    skills: ["OOP", "DBMS", "RESTful APIs", "Data Structures & Algorithms"],
+  },
+  {
+    title: "Databases",
+    icon: "database",
+    skills: ["SQL", "MongoDB"],
+  },
+  {
+    title: "Tools & OS",
+    icon: "wrench",
+    skills: ["Git", "GitHub", "Postman", "VS Code", "Windows"],
   },
 ];
 

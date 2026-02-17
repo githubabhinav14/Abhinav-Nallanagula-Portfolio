@@ -5,40 +5,18 @@ import { SectionReveal } from "./section-reveal";
 
 const experiences = [
   {
-    company: "Nexus Platform",
-    role: "Full Stack Developer (Capstone Project)",
-    duration: "Jan 2025 - Present",
+    company: "AppOrigo Technologies",
+    role: "Backend Developer Intern",
+    duration: "May - August 2025",
     responsibilities: [
-      "Designed and built the Nexus intra-college platform for communication and collaboration",
-      "Implemented hierarchical user system from Principal to Students with personalized profiles",
-      "Developed virtual classrooms, marks management, and secure fee payment modules",
-      "Built real-time event coordination and task tracking systems",
-      "Deployed on AWS with React.js frontend and Spring Boot backend",
+      "Built and maintained backend systems for AdvocateUs, a real-time web platform supporting multiple user roles.",
+      "Designed and optimized RESTful APIs for efficient data handling and communication between services.",
+      "Added custom authentication and authorization, including Google and Facebook OAuth.",
+      "Built automated web scraping utilities for data collection and content updates.",
+      "Worked with frontend developers to design, integrate, and deploy new features.",
+      "Conducted API testing using Postman and managed version control with Git/GitHub.",
     ],
-    tech: ["React.js", "Spring Boot", "AWS", "Tailwind CSS"],
-  },
-  {
-    company: "Food Hero - Social Impact Project",
-    role: "Frontend Developer & Project Lead",
-    duration: "Nov 2024 - Jan 2025",
-    responsibilities: [
-      "Built a food donation platform connecting donors with people and organizations in need",
-      "Designed responsive UI with real-time location tracking for food pickups",
-      "Integrated NGO partnerships and inventory management system",
-      "Implemented real-time notifications for available food donations",
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "MongoDB"],
-  },
-  {
-    company: "Intel Unnati Lab & MRCET",
-    role: "Machine Learning Trainee",
-    duration: "2024",
-    responsibilities: [
-      "Completed a 3-day intensive training program on Machine Learning",
-      "Hands-on experience with AI/ML concepts and practical implementations",
-      "Worked with Python-based ML frameworks and data analysis tools",
-    ],
-    tech: ["Python", "Machine Learning", "Data Analysis"],
+    tech: ["Node.js", "React.js", "MongoDB", "Postman", "Git", "GitHub"],
   },
 ];
 

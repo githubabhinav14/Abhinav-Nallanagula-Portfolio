@@ -5,8 +5,9 @@ import { ArrowDown, ExternalLink } from "lucide-react";
 
 const roles = [
   "Full Stack Developer",
-  "React Developer",
+  "Freelancer",
   "MERN Stack Engineer",
+  "React Developer",
   "Problem Solver",
 ];
 
@@ -62,7 +63,7 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
           </span>
-          Available for opportunities
+          Available for freelance & opportunities
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 text-balance">

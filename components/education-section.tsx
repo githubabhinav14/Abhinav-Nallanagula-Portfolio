@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Award } from "lucide-react";
+import { GraduationCap, Award, School } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
 
 const certifications = [
@@ -21,6 +21,30 @@ const coursework = [
   "Web Development",
 ];
 
+const educationTimeline = [
+  {
+    institution: "Malla Reddy College of Engineering & Technology",
+    degree: "B.Tech in Computer Science Engineering",
+    period: "2022 - Present",
+    score: "CGPA: 7.79/10",
+    icon: GraduationCap,
+  },
+  {
+    institution: "Sri Gayatri Junior College",
+    degree: "MPC (Intermediate)",
+    period: "March 2022",
+    score: "Score: 77.1%",
+    icon: School,
+  },
+  {
+    institution: "Ravindra Bharathi School",
+    degree: "SSC (10th Standard)",
+    period: "March 2020",
+    score: "Score: 98%",
+    icon: School,
+  },
+];
+
 export function EducationSection() {
   return (
     <section id="education" className="relative py-24 sm:py-32">
@@ -39,66 +63,61 @@ export function EducationSection() {
         </SectionReveal>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Education card */}
-          <SectionReveal delay={100}>
-            <div className="glass-card rounded-xl p-6 h-full">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <GraduationCap className="w-6 h-6 text-primary" />
+          {/* Education timeline */}
+          <div className="space-y-5">
+            {educationTimeline.map((edu, index) => {
+              const Icon = edu.icon;
+              return (
+                <SectionReveal key={edu.institution} delay={index * 120} variant="fade-left">
+                  <div className="glass-card rounded-xl p-5 transition-all duration-300 hover:border-primary/20">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold text-foreground leading-snug">
+                          {edu.institution}
+                        </h3>
+                        <p className="text-sm text-primary font-medium mt-0.5">
+                          {edu.degree}
+                        </p>
+                        <div className="flex items-center gap-3 mt-2">
+                          <span className="text-xs font-mono text-muted-foreground bg-secondary/60 px-2.5 py-0.5 rounded-full">
+                            {edu.period}
+                          </span>
+                          <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full border border-primary/20">
+                            {edu.score}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SectionReveal>
+              );
+            })}
+
+            {/* Relevant Coursework */}
+            <SectionReveal delay={400} variant="fade-left">
+              <div className="glass-card rounded-xl p-5">
+                <h4 className="text-sm font-semibold text-foreground mb-3">
+                  Relevant Coursework
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {coursework.map((course) => (
+                    <span
+                      key={course}
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-secondary/60 text-muted-foreground border border-border/60"
+                    >
+                      {course}
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    Malla Reddy College of Engineering and Technology
-                  </h3>
-                  <p className="text-sm text-primary font-medium">
-                    B.Tech in Computer Science and Engineering
-                  </p>
-                  <p className="text-xs text-muted-foreground font-mono mt-1">
-                    2022 - 2026
-                  </p>
-                </div>
               </div>
-
-              <div className="flex items-center gap-3 mb-6 p-3 rounded-lg bg-primary/5 border border-primary/10">
-                <span className="text-sm text-muted-foreground">GPA:</span>
-                <span className="text-lg font-bold text-primary">8.0</span>
-                <span className="text-xs text-muted-foreground">
-                  (as of 6th semester)
-                </span>
-              </div>
-
-              <h4 className="text-sm font-semibold text-foreground mb-3">
-                Relevant Coursework
-              </h4>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {coursework.map((course) => (
-                  <span
-                    key={course}
-                    className="text-xs font-mono px-2.5 py-1 rounded-md bg-secondary/60 text-muted-foreground border border-border/60"
-                  >
-                    {course}
-                  </span>
-                ))}
-              </div>
-
-              <h4 className="text-sm font-semibold text-foreground mb-3">
-                Activities
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {["Technical Fests", "Design Team", "GDSC"].map((activity) => (
-                  <span
-                    key={activity}
-                    className="text-xs font-mono px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/20"
-                  >
-                    {activity}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </SectionReveal>
+            </SectionReveal>
+          </div>
 
           {/* Certifications card */}
-          <SectionReveal delay={200}>
+          <SectionReveal delay={200} variant="fade-right">
             <div className="glass-card rounded-xl p-6 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
