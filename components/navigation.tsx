@@ -56,7 +56,7 @@ export function Navigation() {
           href="#"
           className="text-lg font-bold tracking-tight gradient-text"
         >
-          {"<AN />"}
+          {"<ABHI />"}
         </a>
 
         {/* Desktop */}

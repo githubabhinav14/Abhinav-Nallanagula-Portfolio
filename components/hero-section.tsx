@@ -9,6 +9,7 @@ const roles = [
   "MERN Stack Engineer",
   "React Developer",
   "Problem Solver",
+  "Designer",
 ];
 
 export function HeroSection() {
@@ -18,20 +19,26 @@ export function HeroSection() {
   const [displayText, setDisplayText] = useState("");
 
   const type = useCallback(() => {
-    const currentRole = roles[roleIndex];
+    const currentRole = roles[roleIndex] ?? "";
+    if (!currentRole) {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
 
     if (!isDeleting) {
-      setDisplayText(currentRole.substring(0, charIndex + 1));
-      setCharIndex((prev) => prev + 1);
+      const nextIndex = Math.min(charIndex + 1, currentRole.length);
+      setDisplayText(currentRole.slice(0, nextIndex));
+      setCharIndex(nextIndex);
 
-      if (charIndex + 1 === currentRole.length) {
+      if (nextIndex === currentRole.length) {
         setTimeout(() => setIsDeleting(true), 2000);
       }
     } else {
-      setDisplayText(currentRole.substring(0, charIndex - 1));
-      setCharIndex((prev) => prev - 1);
+      const nextIndex = Math.max(charIndex - 1, 0);
+      setDisplayText(currentRole.slice(0, nextIndex));
+      setCharIndex(nextIndex);
 
-      if (charIndex - 1 === 0) {
+      if (nextIndex === 0) {
         setIsDeleting(false);
         setRoleIndex((prev) => (prev + 1) % roles.length);
       }
@@ -67,10 +74,10 @@ export function HeroSection() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 text-balance">
-          {"Hi, I'm "}
-          <span className="gradient-text">Abhinav</span>
+          {"Hi I'm "}
           <br />
-          <span className="gradient-text">Nallanagula</span>
+          <span className="gradient-text">Abhinav Nallanagula</span>
+          
         </h1>
 
         <div className="h-10 sm:h-12 flex items-center justify-center mb-8">
