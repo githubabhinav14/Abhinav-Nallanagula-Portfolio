@@ -31,7 +31,7 @@ export function HeroSection() {
       setCharIndex(nextIndex);
 
       if (nextIndex === currentRole.length) {
-        setTimeout(() => setIsDeleting(true), 2000);
+        setTimeout(() => setIsDeleting(true), 1000);
       }
     } else {
       const nextIndex = Math.max(charIndex - 1, 0);
@@ -46,7 +46,7 @@ export function HeroSection() {
   }, [charIndex, isDeleting, roleIndex]);
 
   useEffect(() => {
-    const speed = isDeleting ? 40 : 80;
+    const speed = isDeleting ? 25 : 50;
     const timer = setTimeout(type, speed);
     return () => clearTimeout(timer);
   }, [type, isDeleting]);

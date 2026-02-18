@@ -1,6 +1,6 @@
 "use client";
-
-import { useState, useCallback } from "react";
+ 
+import { useState, useCallback, useEffect } from "react";
 import { IntroOverlay } from "@/components/intro-overlay";
 import { Navigation } from "@/components/navigation";
 import { ScrollProgress } from "@/components/scroll-progress";
@@ -21,14 +21,22 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [introEnabled, setIntroEnabled] = useState(true);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#projects") {
+      setIntroEnabled(false);
+      setIntroComplete(true);
+    }
+  }, []);
+
   return (
     <>
-      <IntroOverlay onComplete={handleIntroComplete} />
+      {introEnabled && <IntroOverlay onComplete={handleIntroComplete} />}
 
       <div
         style={{

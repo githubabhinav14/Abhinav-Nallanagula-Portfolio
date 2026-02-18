@@ -1,62 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Github, ExternalLink } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    title: "Nexus - Intra-College Platform",
-    description:
-      "An innovative intra-college platform that revolutionizes communication, collaboration, and resource sharing. Features hierarchical user system, virtual classrooms, marks management, secure fee payment, and event coordination.",
-    tech: ["React.js", "Tailwind CSS", "Spring Boot", "AWS"],
-    github: "https://github.com/githubabhinav14",
-    live: "#",
-    featured: true,
-    gradient: "from-primary/20 to-primary/5",
-  },
-  {
-    title: "Food Hero - Donate Food, Deliver Hope",
-    description:
-      "A food donation platform connecting donors with people in need. Features real-time updates, location-based tracking, NGO integration, and inventory management for timely food distribution.",
-    tech: ["HTML5", "CSS3", "JavaScript", "MongoDB"],
-    github: "https://github.com/githubabhinav14",
-    live: "#",
-    featured: true,
-    gradient: "from-chart-2/20 to-chart-2/5",
-  },
-  {
-    title: "Soma Scents - E-Commerce Website",
-    description:
-      "A complete e-commerce platform for a candle-selling business with product showcasing, cart functionality, and order handling. Integrated a secure backend using MongoDB to manage product data, customer details, and order tracking.",
-    tech: ["Next.js", "MongoDB"],
-    github: "https://github.com/githubabhinav14/Soma-Scents-Ecommerce-website-candles-business",
-    live: "https://soma-scents-ecommerce-website-candl-three.vercel.app/",
-    featured: false,
-    gradient: "from-chart-4/20 to-chart-4/5",
-  },
-  {
-    title: "Aani Creations - Design & Printing Services",
-    description:
-      "A professional company website to promote graphic design and printing services. Features responsive layouts, interactive elements, branding consistency, optimized performance, and an intuitive admin panel for content updates.",
-    tech: ["Next.js"],
-    github: "https://github.com/githubabhinav14/Aani-Creations",
-    live: "https://aani-creations.vercel.app/",
-    featured: false,
-    gradient: "from-chart-5/20 to-chart-5/5",
-  },
-  {
-    title: "Typing Speed Tester",
-    description:
-      "An app to improve typing accuracy with focus mode, progress reports, speed challenges, real-time error tracking, and typing guidance for proper finger placement.",
-    tech: ["Python", "VS Code"],
-    github: "https://github.com/githubabhinav14",
-    live: "#",
-    featured: false,
-    gradient: "from-chart-3/20 to-chart-3/5",
-  },
-];
+import { projects } from "@/lib/projects";
 
 function TiltCard({
   children,
@@ -100,6 +50,7 @@ function TiltCard({
 }
 
 export function ProjectsSection() {
+  const router = useRouter();
   return (
     <section id="projects" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -128,8 +79,9 @@ export function ProjectsSection() {
             >
               <TiltCard>
                 <div
+                  onClick={() => router.push(`/projects/${project.slug}`)}
                   className={cn(
-                    "glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 group h-full",
+                    "glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 group h-full cursor-pointer",
                     project.featured && index === 0 && "md:flex"
                   )}
                 >
@@ -158,9 +110,18 @@ export function ProjectsSection() {
                       project.featured && index === 0 && "md:flex-1 md:p-8"
                     )}
                   >
+                    <div className="flex items-start justify-between gap-4">
                     <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="text-xs px-3 py-1.5 rounded-md border border-border hover:border-primary/40 text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={`Open ${project.title} details`}
+                    >
+                      View details
+                    </Link>
+                    </div>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                       {project.description}
                     </p>
@@ -181,6 +142,7 @@ export function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                         aria-label={`View ${project.title} source code on GitHub`}
                       >
@@ -191,12 +153,21 @@ export function ProjectsSection() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                         aria-label={`View ${project.title} live demo`}
                       >
                         <ExternalLink className="w-4 h-4" />
                         Live Demo
                       </a>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="ml-auto inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                        aria-label={`Open ${project.title} details`}
+                      >
+                        Explore
+                      </Link>
                     </div>
                   </div>
                 </div>

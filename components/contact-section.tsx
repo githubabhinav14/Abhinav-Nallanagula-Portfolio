@@ -109,6 +109,7 @@ export function ContactSection() {
                   Name
                 </label>
                 <input
+                  suppressHydrationWarning
                   id="name"
                   type="text"
                   required
@@ -128,6 +129,7 @@ export function ContactSection() {
                   Email
                 </label>
                 <input
+                  suppressHydrationWarning
                   id="email"
                   type="email"
                   required
@@ -147,6 +149,7 @@ export function ContactSection() {
                   Message
                 </label>
                 <textarea
+                  suppressHydrationWarning
                   id="message"
                   required
                   rows={4}
