@@ -160,6 +160,7 @@ export function ContactSection() {
               </div>
 
               <button
+                suppressHydrationWarning
                 type="submit"
                 className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 disabled:opacity-50"
               >

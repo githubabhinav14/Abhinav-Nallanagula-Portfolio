@@ -78,6 +78,7 @@ export function Navigation() {
 
         {/* Mobile toggle */}
         <button
+          suppressHydrationWarning
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
           aria-label="Toggle navigation"
