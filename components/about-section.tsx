@@ -91,7 +91,8 @@ export function AboutSection() {
 
             <SectionReveal delay={250}>
               <a
-                href="#contact"
+                href="/CV.pdf"
+                download="Abhinav_Nallanagula_CV.pdf"
                 className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 w-fit"
               >
                 Download CV
